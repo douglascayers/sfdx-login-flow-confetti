@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>45.0</apiVersion>
+    <availableInTouch>true</availableInTouch>
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>Humorously inspired by SteveMo&#39;s tweet, https://twitter.com/SteveMoForce/status/1135590776036057089</description>
+    <label>LoginFlowConfettiPage</label>
+</ApexPage>

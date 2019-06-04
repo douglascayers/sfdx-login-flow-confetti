@@ -1,0 +1,75 @@
+<!--
+    Humorously inspired by SteveMo's tweet, https://twitter.com/SteveMoForce/status/1135590776036057089
+-->
+<apex:page controller="LoginFlowConfettiController" action="{!onLogin}" showHeader="false">
+
+    <apex:slds />
+    <apex:includeLightning />
+
+    <apex:includeScript value="https://cdn.jsdelivr.net/npm/canvas-confetti@0.2.1/dist/confetti.browser.min.js"/>
+
+    <!--
+        Fireworks animation
+        https://www.kirilv.com/canvas-confetti/
+    -->
+    <script>
+
+        const showConfetti = '{!showConfetti}';
+
+        if ( showConfetti ) {
+
+            var end = Date.now() + (10 * 1000);
+
+            var interval = setInterval(function() {
+                if (Date.now() > end) {
+                    return clearInterval(interval);
+                }
+
+                confetti({
+                    startVelocity: 30,
+                    spread: 360,
+                    ticks: 60,
+                    origin: {
+                        x: Math.random(),
+                        // since they fall down, start a bit higher than random
+                        y: Math.random() - 0.2
+                    }
+                });
+            }, 200);
+
+        } else {
+
+            finishLoginFlow();
+
+        }
+
+    </script>
+
+    <apex:form >
+        <apex:actionFunction name="finishLoginFlow" action="{!finishLoginFlow}"/>
+    </apex:form>
+
+    <!-- I copied/pasted verbatim from the code sample on the SLDS website then made minor tweaks to the text. -->
+    <!-- https://www.lightningdesignsystem.com/components/prompt/ -->
+    <div>
+        <section role="alertdialog" tabindex="0" aria-labelledby="prompt-heading-id" aria-describedby="prompt-message-wrapper" class="slds-modal slds-fade-in-open slds-modal_prompt" aria-modal="true">
+            <div class="slds-modal__container slds-border-around">
+                <header class="slds-modal__header slds-theme_success slds-theme_alert-texture">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+                        X
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 class="slds-text-heading_medium" id="prompt-heading-id">Password Management Achievement!</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="prompt-message-wrapper">
+                    <p>Congratulations, you self-managed your most recent password reset without contacting your Salesforce Administrator.</p>
+                </div>
+                <footer class="slds-modal__footer slds-theme_default">
+                    <button class="slds-button slds-button_neutral" onclick="this.disabled='disabled';finishLoginFlow();">Continue to Salesforce</button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+
+</apex:page>
