@@ -50,11 +50,11 @@ sfdx force:source:deploy -p force-app -w 10
 1. From Setup, enter `login` into the Quick Find box, then click **Login Flows**.
 
 2. Click **New**, then enter the details:
-    a. Type: **VisualForce Page**
-    b. Name: `Login Flow Confetti`
-    c. VisualForce Page: `LoginFlowConfettiPage`
-    d. User License: *choose a license*
-    e. Profile: *choose a profile*
+    - Type: **VisualForce Page**
+    - Name: `Login Flow Confetti`
+    - VisualForce Page: `LoginFlowConfettiPage`
+    - User License: *choose a license*
+    - Profile: *choose a profile*
 
 3. Click **Save**.
 
