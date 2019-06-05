@@ -10,6 +10,8 @@ If no, then the user is logged in like normal.
 
 ![screenshot](images/stevemo.png)
 
+![screenshot](images/login-flow-confetti.gif)
+
 
 # Installation
 
@@ -56,7 +58,7 @@ sfdx force:source:deploy -p force-app -w 10
 
 3. Click **Save**.
 
-4. As a user of the selected profile for your Login Flow you just created, [self-request a password reset](https://login.salesforce.com/secur/forgotpassword.jsp).
+4. Using a user with the selected profile assigned to your Login Flow you just created, [self-request a password reset](https://login.salesforce.com/secur/forgotpassword.jsp).
 
 5. Click the link in your email to reset your password.
 
