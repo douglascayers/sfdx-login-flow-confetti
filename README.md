@@ -16,8 +16,8 @@ If no, then the user is logged in like normal.
 # Installation
 
 1. Open a command line terminal on your machine.
-  * On Windows, click **Start**, type `PowerShell`, and then click **Windows PowerShell**.
-  * On macOS, press `CMD` + `SPACEBAR` to open **Spotlight Search**, type `terminal`, and then click **Terminal.app**.
+    * On Windows, click **Start**, type `PowerShell`, and then click **Windows PowerShell**.
+    * On macOS, press `CMD` + `SPACEBAR` to open **Spotlight Search**, type `terminal`, and then click **Terminal.app**.
 
 2. [Clone or download](https://help.github.com/en/articles/cloning-a-repository) this repository to your machine by running the following commands from your terminal.
 
@@ -50,11 +50,11 @@ sfdx force:source:deploy -p force-app -w 10
 1. From Setup, enter `login` into the Quick Find box, then click **Login Flows**.
 
 2. Click **New**, then enter the details:
-  a. Type: **VisualForce Page**
-  b. Name: `Login Flow Confetti`
-  c. VisualForce Page: `LoginFlowConfettiPage`
-  d. User License: *choose a license*
-  e. Profile: *choose a profile*
+    a. Type: **VisualForce Page**
+    b. Name: `Login Flow Confetti`
+    c. VisualForce Page: `LoginFlowConfettiPage`
+    d. User License: *choose a license*
+    e. Profile: *choose a profile*
 
 3. Click **Save**.
 
