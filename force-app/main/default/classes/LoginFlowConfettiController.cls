@@ -4,15 +4,15 @@ public without sharing class LoginFlowConfettiController {
 
     public PageReference onLogin() {
 
-		this.showConfetti = false;
+        this.showConfetti = false;
 
         User currentUser = [
-        	SELECT
-            	Id, Name, LastPasswordChangeDate
+            SELECT
+                Id, Name, LastPasswordChangeDate
             FROM
-            	User
+                User
             WHERE
-            	Id = :UserInfo.getUserId()
+                Id = :UserInfo.getUserId()
         ];
 
         // Since we can't filter the query by the `Display` field to know
@@ -22,19 +22,19 @@ public without sharing class LoginFlowConfettiController {
         // if a LOT of users reset their passwords at approx. the same time.
         for ( SetupAuditTrail trail : [
             SELECT
-            	Id, Action, Display, Section, CreatedDate, CreatedById
+                Id, Action, Display, Section, CreatedDate, CreatedById
             FROM
-            	SetupAuditTrail
+                SetupAuditTrail
             WHERE
-            	Action IN ( 'resetpassword' )
-            	AND
-            	CreatedDate <= :currentUser.LastPasswordChangeDate
-            	AND
-            	CreatedDate >= :currentUser.LastPasswordChangeDate.addDays(-1)
+                Action IN ( 'resetpassword' )
+                AND
+                CreatedDate <= :currentUser.LastPasswordChangeDate
+                AND
+                CreatedDate >= :currentUser.LastPasswordChangeDate.addDays(-1)
             ORDER BY
-            	CreatedDate DESC
+                CreatedDate DESC
             LIMIT
-            	200
+                200
         ]) {
 
             Boolean isPasswordResetForCurrentUser = ( trail.Display == ( 'Reset password for user ' + currentUser.Name ) );
@@ -49,9 +49,9 @@ public without sharing class LoginFlowConfettiController {
 
         }
 
-		// If the current user reset their own password, then
-		// show confetti, else continue login flow.
-		return ( ( !this.showConfetti ) ? finishLoginFlow() : null );
+        // If the current user reset their own password, then
+        // show confetti, else continue login flow.
+        return ( ( !this.showConfetti ) ? finishLoginFlow() : null );
     }
 
     public PageReference finishLoginFlow() {
